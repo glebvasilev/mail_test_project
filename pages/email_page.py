@@ -22,6 +22,7 @@ class EmailPage(BasicPage):
         # XPATH
         self.__response_text_box_xpath = '//div[@placeholder="Введите сообщение"]'
         self.__send_button_xpath = '//span[text()="Отправить"]'
+        self.__quick_reply_box_xpath = '// span[contains(text(), "Ответить")]'
 
     def __execute(self):
         # go to emails page
@@ -52,9 +53,9 @@ class EmailPage(BasicPage):
         self._wait_to_load()
         # working with response field
         try:
-            reply_box = WebDriverWait(self.driver, self._wait_time).until(ec.visibility_of_element_located((
-                By.CSS_SELECTOR, self.__quick_reply_box_css)))
-            reply_box.click()
+            # find all elements with text 'Ответить'
+            reply_box = self.driver.find_elements_by_xpath(self.__quick_reply_box_xpath)
+            reply_box[2].click()
             # wait for page to load
             self._wait_to_load()
             # find response text box
