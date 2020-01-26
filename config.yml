@@ -1,0 +1,5 @@
+selenium:
+  user_name: "rradrigues@yandex.ru"
+  user_password: "Woha#6311!!"
+  driver_path: "D:/projects/gleb_selenium/b1a225dd6533919ccd99af1aa0a25fb4/webdriver/chromedriver.exe"
+
